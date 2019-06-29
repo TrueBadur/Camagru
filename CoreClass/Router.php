@@ -12,10 +12,10 @@ class Router
 
     public function getController($controller)
     {
-        if (!isset($controller))
-            $this->errorUri("No controller given");
         if (file_exists($controller_file = ROOT."/Controllers/".$controller.'.php'))
             include $controller_file;
+        else
+            $this->errorUri("No file found");
         if(!class_exists($controller))
             $this->errorUri("No class in file");
         return new $controller;

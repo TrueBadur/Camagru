@@ -2,16 +2,20 @@
 
 class ErrorController extends Controller
 {
-    static function action404($message = false){
+    function action404(){
         header("HTTP/1.1 404 Not Found");
-        echo "<br>404 Page<br>";
-        if (isset($message) && !empty($message))
-            echo $message;
+        $this->view->render('error', array('error_msg' => '404 Page not found', 'title' => '404 Not found'));
+        exit;
+    }
+
+    function action500(){
+        header("HTTP/1.1 500 Internal Error");
+        $this->view->render('error', array('error_msg' => '500 Internal Error', 'title' => '500 Internal error'));
         exit;
     }
 
     public function actionDefault($params = false)
     {
-        self::action404($params);
+        self::action404();
     }
 }
