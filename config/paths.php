@@ -8,4 +8,6 @@ require_once(ROOT.'/CoreClass/Router.php');
 require_once(ROOT.'/CoreClass/Controller.php');
 require_once(ROOT.'/CoreClass/View.php');
 require_once(ROOT.'/CoreClass/Model.php');
-require_once(ROOT.'/config/db.php');
+require_once(ROOT.'/CoreClass/Database.php');
+require_once(ROOT.'/CoreClass/Session.php');
+require_once(ROOT.'/Exceptions/DatabaseExceptions.php');
