@@ -15,7 +15,7 @@ class View {
 
     function fetchWhole($template, $params = array()){
         $inner = $this->fetch($template, $params);
-        return $this->fetch('layout', array('inner' => $inner, 'title' => $params['title']));
+        return $this->fetch('layout', array('inner' => $inner) + $params);
     }
 
     function render($template, $params = array()){

@@ -5,11 +5,14 @@ abstract class Controller
 {
     protected $view;
     protected $model;
+    protected $loggedIn;
 
     function __construct()
     {
         $this->view = new View();
         $this->getModel();
+        Session::init();
+        $this->loggedIn = Session::get("loggedIn");
     }
 
     function getModel(){
@@ -18,7 +21,7 @@ abstract class Controller
         if (file_exists($path))
         {
             require ($path);
-            $this->model = new $modelname;
+            $this->model = new $modelname($GLOBALS['db']);
         }
     }
 
