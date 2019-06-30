@@ -15,8 +15,14 @@
 <div>
     <ul>
         <li><a href="<?=URL?>">Home</a></li>
+        <?php if (isset($loggedIn) && $loggedIn): ?>
+            <li><a href="<?=URL?>login/logout">logout</a></li>
+        <?php else:?>
         <li><a href="<?=URL?>login">Login</a></li>
         <li><a href="<?=URL?>register">Register</a></li>
+        <?php endif;?>
+<!--        TODO make layout more complex and modular to evade php in html-->
+
     </ul>
 </div>
 <div class="container">
