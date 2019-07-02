@@ -1,13 +1,18 @@
 <?php
 
 
+define('DB_HOST', "localhost");
+define('DB_NAME', 'camagru');
+define('DB_USER', "admin");
+define('DB_PASSWORD','CamagruMySQLAdmin');
+
 class Database
 {
     private $db;
 
     public function __construct()
     {
-        $this->db = new PDO('mysql:host=localhost;dbname=camagru', 'admin', 'CamagruMySQLAdmin');
+        $this->db = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASSWORD);
     }
 
     private function add_rows_to_query($query, $select){
